@@ -145,7 +145,6 @@ if (isset($_POST['submit'])) {
     <script>
         lucide.createIcons();
 
-        // PHALERT LOGIC
         <?php if($success): ?>
             Swal.fire({
                 title: 'Success!',
@@ -192,7 +191,7 @@ if (isset($_POST['submit'])) {
                 };
 
                 $.ajax({
-                    url: "http://127.0.0.1:5000/predict",
+                    url: "https://insighted-mcck.onrender.com",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(studentData),
