@@ -1,0 +1,82 @@
+/* css/view_details.css */
+.details-wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #27ae60;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.header-flex h2 {
+    color: #245f52;
+    margin: 0;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.info-box {
+    padding: 15px;
+    border-bottom: 2px solid #f4f7f6;
+}
+
+.info-box label {
+    font-size: 12px;
+    color: #95a5a6;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.info-box span {
+    font-size: 18px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.prediction-box {
+    margin-top: 40px;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    background: #fdfdfd;
+    border: 2px dashed #e0e0e0;
+}
+
+.status-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Colors for Prediction */
+.text-high { color: #27ae60; }
+.text-avg { color: #f39c12; }
+.text-risk { color: #e74c3c; }
+
+.btn-back {
+    background: #f4f7f6;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    background: #e0e0e0;
+}

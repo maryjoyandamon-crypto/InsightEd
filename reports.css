@@ -1,0 +1,197 @@
+:root {
+    --glass: rgba(10, 25, 18, 0.8);
+    --border: rgba(46, 204, 113, 0.15);
+    --primary: #2ecc71;
+    --text: #94a3b8;
+}
+
+body.reports-body {
+    background: #050c09;
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#particleCanvas { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: -1; 
+}
+
+.main-wrapper { 
+    display: flex; 
+}
+
+.content-area { 
+    flex: 1; 
+    padding: 20px; 
+}
+
+.report-header-glass {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-info h1 { 
+    margin: 0; 
+    font-size: 22px; 
+}
+
+.header-info h1 span { 
+    color: var(--primary); 
+}
+
+.header-info p { 
+    margin: 5px 0 0; 
+    font-size: 13px; 
+    color: var(--text); 
+}
+
+.reports-layout-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+}
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.glass-card h3 {
+    margin: 0 0 15px;
+    font-size: 15px;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-group-glass { 
+    margin-bottom: 15px; 
+}
+
+.input-group-glass label { 
+    display: block; 
+    font-size: 11px; 
+    color: var(--text); 
+    margin-bottom: 5px; 
+    text-transform: uppercase; 
+}
+
+.input-group-glass select {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232ecc71' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+.input-group-glass select option {
+    background-color: #0c1a14;
+    color: white;
+    padding: 10px;
+}
+
+.btn-submit-glass {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit-glass:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+}
+
+.charts-flex-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.chart-wrapper-small {
+    position: relative;
+    height: 180px; 
+}
+
+.line-chart-wrapper {
+    position: relative;
+    height: 240px; 
+}
+
+.insight-pill-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.pill {
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pill.passing { 
+    background: rgba(46, 204, 113, 0.1); 
+    color: var(--primary); 
+    border: 1px solid var(--primary); 
+}
+
+.pill.at-risk { 
+    background: rgba(231, 76, 60, 0.1); 
+    color: #e74c3c; 
+    border: 1px solid #e74c3c; 
+}
+
+.btn-print {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid var(--border);
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.btn-print:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 900px) {
+    .reports-layout-grid { grid-template-columns: 1fr; }
+    .charts-flex-row { grid-template-columns: 1fr; }
+}

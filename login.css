@@ -1,0 +1,173 @@
+:root {
+    --bg-dark: #06090f;
+    --card-green: rgba(15, 25, 20, 0.88); 
+    --accent-green: #2ecc71;
+    --accent-gold: #d4af37;
+    --text-dim: #94a3b8;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-dark);
+    background-image: radial-gradient(circle at 50% 50%, #0d1a14 0%, #06090f 100%);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#particleCanvas { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: -1; 
+}
+
+.login-card {
+    background: var(--card-green);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(46, 204, 113, 0.15);
+    padding: 45px 40px;
+    border-radius: 30px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+.brand-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-green);
+    background: white;
+    padding: 3px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 5px 0;
+    background: linear-gradient(to right, var(--accent-green), var(--accent-gold));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-section p { 
+    color: var(--text-dim); 
+    font-size: 13px; 
+    margin-bottom: 35px; 
+}
+
+.input-field { 
+    text-align: left; 
+    margin-bottom: 22px; 
+}
+
+.field-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+label { 
+    font-size: 13px; 
+    color: var(--text-dim); 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    margin-bottom: 0;
+}
+
+.forgot-link {
+    font-size: 13px;
+    color: var(--accent-green);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.forgot-link:hover {
+    color: white;
+}
+
+input {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    color: white;
+    margin-top: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input:focus { 
+    border-color: var(--accent-green); 
+    outline: none; 
+    background: rgba(0,0,0,0.6); 
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(45deg, #1e8449, #2ecc71);
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.login-btn:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 10px 25px rgba(46, 204, 113, 0.3); 
+}
+
+.card-footer { 
+    margin-top: 30px; 
+    font-size: 14px; 
+    color: var(--text-dim); 
+}
+
+.card-footer a { 
+    color: var(--accent-green); 
+    text-decoration: none; 
+    font-weight: 600; 
+}
+
+.toast {
+    position: fixed; 
+    top: 20px; 
+    padding: 12px 20px; 
+    border-radius: 12px;
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    z-index: 1000; 
+    transition: 0.5s;
+    backdrop-filter: blur(10px);
+}
+
+.toast.error { 
+    background: rgba(231, 76, 60, 0.2); 
+    border: 1px solid #e74c3c; 
+    color: #ffadad; 
+}
+
+.toast.success { 
+    background: rgba(46, 204, 113, 0.2); 
+    border: 1px solid #2ecc71; 
+    color: #afffaf; 
+}

@@ -1,0 +1,278 @@
+:root {
+    --primary: #2ecc71;
+    --accent: #3498db;
+    --danger: #e74c3c;
+    --dark-bg: #06090f;
+    --sidebar-green: #07160f; 
+    --card-green: rgba(10, 25, 18, 0.9); 
+    --border: rgba(46, 204, 113, 0.15);
+    --text-dim: #64748b;
+}
+
+body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--dark-bg);
+    background-image: radial-gradient(circle at 50% 50%, #0d1a14 0%, #06090f 100%);
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+#particleCanvas {
+    position: fixed;
+    top: 0; left: 0; z-index: -1;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 240px;
+    background: var(--sidebar-green);
+    backdrop-filter: blur(30px);
+    border-right: 1px solid var(--border);
+    padding: 40px 15px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.side-logo { 
+    width: 90px; 
+    height: 90px; 
+    border-radius: 50%; 
+    border: 3px solid var(--primary);
+    background: white;
+    padding: 3px;
+    object-fit: contain; 
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 0 25px rgba(46, 204, 113, 0.3);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.side-logo:hover { transform: scale(1.1) rotate(5deg); }
+
+.sidebar-header h2 { 
+    font-size: 22px; 
+    font-weight: 800; 
+    margin: 0;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-menu { display: flex; flex-direction: column; gap: 10px; }
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    text-decoration: none;
+    color: var(--text-dim);
+    border-radius: 12px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: var(--mouse-y, 0);
+    left: var(--mouse-x, 0);
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(46, 204, 113, 0.35) 0%, transparent 75%);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+    z-index: -1;
+}
+
+.nav-link:hover::before { width: 300px; height: 300px; }
+
+.nav-link:hover, .nav-link.active {
+    color: white;
+    background: rgba(46, 204, 113, 0.1);
+}
+
+.nav-link.active {
+    background: rgba(46, 204, 113, 0.2);
+    box-shadow: inset 0 0 15px rgba(46, 204, 113, 0.1);
+    font-weight: 700;
+}
+
+.nav-link.active i { color: var(--primary); }
+
+.nav-divider { height: 1px; background: rgba(46, 204, 113, 0.1); margin: 20px 0; }
+
+.logout { color: #f87171; margin-top: auto; }
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.header-left h1 { 
+    font-size: 32px; 
+    margin: 0; 
+    font-weight: 800;
+    background: linear-gradient(to right, #fff, var(--primary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-left p { color: var(--text-dim); margin-top: 8px; font-size: 15px; }
+
+.header-right { display: flex; align-items: center; gap: 20px; }
+
+.academic-badge {
+    background: rgba(212, 175, 55, 0.1); 
+    border: 1px solid #d4af37; 
+    color: #d4af37; 
+    padding: 8px 15px; 
+    border-radius: 12px; 
+    font-weight: 700; 
+    font-size: 13px;
+}
+
+.profile-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--card-green);
+    padding: 12px 25px;
+    border-radius: 60px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.profile-box:hover {
+    background: rgba(46, 204, 113, 0.1);
+    border-color: var(--primary);
+    transform: scale(1.02);
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.profile-name { font-size: 16px; font-weight: 700; color: white; }
+.profile-role { font-size: 12px; color: var(--primary); font-weight: 600; }
+
+.profile-avatar-wrapper {
+    width: 65px; 
+    height: 65px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.2);
+}
+
+.profile-avatar { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: var(--card-green);
+    border: 1px solid var(--border);
+    padding: 15px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-icon {
+    width: 42px; 
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon.blue { background: rgba(52, 152, 219, 0.1); color: var(--accent); }
+.stat-icon.green { background: rgba(46, 204, 113, 0.1); color: var(--primary); }
+.stat-icon.orange { background: rgba(212, 175, 55, 0.1); color: #d4af37; }
+.stat-icon.red { background: rgba(231, 76, 60, 0.1); color: var(--danger); }
+
+.stat-info h3 { font-size: 20px; margin: 0; font-weight: 800; }
+.stat-info p { font-size: 11px; color: var(--text-dim); margin: 0; font-weight: 600; text-transform: uppercase; }
+
+/* CHART BOX SECTION */
+.chart-box-wrapper { margin-top: 20px; }
+
+.chart-label {
+    color: var(--primary);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chart-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.empty-chart-box {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.awaiting-text {
+    color: var(--text-dim); 
+    font-size: 14px; 
+    letter-spacing: 1px; 
+    opacity: 0.5;
+}
