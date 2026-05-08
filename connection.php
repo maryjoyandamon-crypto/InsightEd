@@ -1,7 +1,7 @@
 <?php
 $servername = "sql202.infinityfree.com";
 $username = "if0_41864127";
-$password = "ANG_IMONG_PASSWORD"; 
+$password = "InfinityMARY"; 
 $dbname = "if0_41864127_insighted_db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
